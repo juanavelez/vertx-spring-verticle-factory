@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2016 chibchasoft.com
+  ~
+  ~  All rights reserved. This program and the accompanying materials
+  ~  are made available under the terms of the Apache License v2.0 which accompanies
+  ~  this distribution.
+  ~
+  ~      The Apache License v2.0 is available at
+  ~      http://www.opensource.org/licenses/apache2.0.php
+  ~
+  ~ Author <a href="mailto:jvelez@chibchasoft.com">Juan Velez</a>
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.chibchasoft</groupId>
+  <artifactId>vertx-spring-verticle-factory</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <name>Vertx Spring Verticle Factory</name>
+  <description>Spring-based Verticle Factory for Vertx</description>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.source.plugin.version>2.4</maven.source.plugin.version>
+    <spring.version>[3.0,)</spring.version>
+    <vertx.core.version>[3.3.0,4.0)</vertx.core.version>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${maven.source.plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-core</artifactId>
+      <version>${vertx.core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+  </dependencies>
+</project>
