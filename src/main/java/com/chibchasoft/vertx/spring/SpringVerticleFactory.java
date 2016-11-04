@@ -12,9 +12,6 @@
  */
 package com.chibchasoft.vertx.spring;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
-
 import org.springframework.context.ApplicationContext;
 
 import io.vertx.core.Verticle;
@@ -33,22 +30,7 @@ import io.vertx.core.spi.VerticleFactory;
 public class SpringVerticleFactory implements VerticleFactory {
     private static final String PREFIX = "spring";
 
-    private static AtomicReference<ApplicationContext> appCtx = new AtomicReference<>();
-    private static AtomicBoolean instantiationHappening = new AtomicBoolean(false);
-
     public SpringVerticleFactory() {
-        if (appCtx.get() == null) {
-            // Prevent recursive entrance
-            if ( !instantiationHappening.compareAndSet(false, true) ) return;
-            ApplicationContext theAppCtx = ApplicationContextProvider.getApplicationContext();
-            if (theAppCtx==null) {
-                throw new IllegalStateException("No Application Context Instance has been set in "
-                    + "ApplicationContextProvider.");
-            } else {
-                appCtx.compareAndSet(null, theAppCtx);
-            }
-            instantiationHappening.compareAndSet(true, false);
-        }
     }
 
     /* (non-Javadoc)
@@ -73,16 +55,29 @@ public class SpringVerticleFactory implements VerticleFactory {
     @Override
     public Verticle createVerticle(String verticleName, ClassLoader classLoader) throws Exception {
         verticleName = VerticleFactory.removePrefix(verticleName);
-        ApplicationContext ctx = appCtx.get();
+        ApplicationContext ctx = getApplicationContext();
         if (!ctx.containsBean(verticleName))
             throw new IllegalArgumentException(String.format("No bean found for %s", verticleName));
 
         if (!ctx.isPrototype(verticleName))
-            throw new IllegalArgumentException(String.format("Bean %s needs to be of Prototype scopoe", verticleName));
+            throw new IllegalArgumentException(String.format("Bean %s needs to be of Prototype scope", verticleName));
 
         Verticle verticle = (Verticle) ctx.getBean(verticleName);
         if (verticle==null)
             throw new IllegalArgumentException(String.format("No bean found for %s", verticleName));
         return verticle;
+    }
+
+    /**
+     * Gets the application context to be used for obtaining the verticles.
+     * @return The application context
+     */
+    private ApplicationContext getApplicationContext() {
+        ApplicationContext appCtx = ApplicationContextProvider.getApplicationContext();
+        if (appCtx == null) {
+            throw new IllegalStateException("No Application Context Instance has been "
+                                            + "set in ApplicationContextProvider.");
+        }
+        return appCtx;
     }
 }

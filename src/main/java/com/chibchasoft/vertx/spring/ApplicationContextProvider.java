@@ -41,7 +41,7 @@ public class ApplicationContextProvider {
      * Sets the actual application context that this provider will return.
      * @param appCtx The actual application context to be provided byt this class.
      */
-    public static synchronized void setAppplicationContext(ApplicationContext appCtx) {
+    public static synchronized void setApplicationContext(ApplicationContext appCtx) {
         ApplicationContextProvider.appCtx = appCtx; 
     }
 
