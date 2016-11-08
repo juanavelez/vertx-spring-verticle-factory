@@ -29,21 +29,13 @@
     <junit.version>4.12</junit.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.javadoc.plugin.version>2.10.1</maven.javadoc.plugin.version>
     <maven.source.plugin.version>2.4</maven.source.plugin.version>
     <spring.version>[3.0,)</spring.version>
-    <vertx.core.version>[3.3.0,4.0)</vertx.core.version>
+    <vertx.core.version>3.3.0</vertx.core.version>
   </properties>
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>${maven.source.plugin.version}</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -54,6 +46,17 @@
             <goals>
               <goal>jar</goal>
               <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
             </goals>
           </execution>
         </executions>
@@ -75,7 +78,6 @@
     </dependency>
 
     <!-- Testing -->
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
