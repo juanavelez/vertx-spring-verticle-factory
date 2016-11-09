@@ -6,7 +6,7 @@
  * this distribution.
  *
  *      The Apache License v2.0 is available at
- *      http://www.opensource.org/licenses/apache2.0.php
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Author <a href="mailto:jvelez@chibchasoft.com">Juan Velez</a>
  */
