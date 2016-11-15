@@ -55,7 +55,7 @@
     <maven.javadoc.plugin.version>2.10.1</maven.javadoc.plugin.version>
     <maven.source.plugin.version>2.4</maven.source.plugin.version>
     <spring.version>[3.0,)</spring.version>
-    <vertx.core.version>3.3.0</vertx.core.version>
+    <vertx.core.version>3.3.3</vertx.core.version>
   </properties>
 
   <build>

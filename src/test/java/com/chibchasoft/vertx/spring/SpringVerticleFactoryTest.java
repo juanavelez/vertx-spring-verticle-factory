@@ -12,6 +12,7 @@
  */
 package com.chibchasoft.vertx.spring;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -27,6 +28,12 @@ public class SpringVerticleFactoryTest extends VertxTestBase {
     public static void createAppCtx() throws Exception {
         ApplicationContext appCtx = new AnnotationConfigApplicationContext(AnnotatedConfiguration.class);
         ApplicationContextProvider.setApplicationContext(appCtx);
+    }
+
+    @AfterClass
+    public static void closeAppCtx() throws Exception {
+        ApplicationContext appCtx = ApplicationContextProvider.getApplicationContext();
+        ((AnnotationConfigApplicationContext) appCtx).close();
     }
 
     @Test

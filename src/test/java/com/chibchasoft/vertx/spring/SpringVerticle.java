@@ -12,6 +12,8 @@
  */
 package com.chibchasoft.vertx.spring;
 
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -32,5 +34,15 @@ public class SpringVerticle extends AbstractVerticle {
     @Override
     public void start(Future<Void> startFuture) {
         startFuture.complete();
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Stopping instance of SpringVerticle");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        stop();
     }
 }
