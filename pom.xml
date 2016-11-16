@@ -22,8 +22,8 @@
   <artifactId>vertx-spring-verticle-factory</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
-  <name>Vertx Spring Verticle Factory</name>
-  <description>Spring-based Verticle Factory for Vertx</description>
+  <name>Vert.x Spring Verticle Factory</name>
+  <description>Spring-based Verticle Factory for Vert.x</description>
   <url>https://github.com/juanavelez/vertx-spring-verticle-factory</url>
 
   <licenses>
@@ -47,6 +47,17 @@
     <developerConnection>scm:git:git://github.com/juanavelez/vertx-spring-verticle-factory.git</developerConnection>
     <url>https://github.com/juanavelez/vertx-spring-verticle-factory</url>
   </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
   <properties>
     <junit.version>4.12</junit.version>
@@ -116,4 +127,33 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <profiles>
+    <profile>
+      <id>release</id>
+      <activation>
+        <property>
+          <name>release</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.5</version>
+            <executions>
+                <execution>
+                    <id>sign-artifacts</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>sign</goal>
+                    </goals>
+                </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
