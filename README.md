@@ -29,6 +29,8 @@ Proceed to deploy the spring-bean-based verticle like this:
    vertx.deployVerticle("spring:mySpringVerticle", new DeploymentOptions().setInstances(2).setWorker(true));
 ```
 
+**NOTE**: The Spring Application Context set in the ApplicationContextProvider is used for all the verticles created using the Spring Verticle Factory up to the point where it is changed. Once changed, the Spring Verticle Factory will use the new one when creating new verticles.
+
 The verticle class itself can use any Spring capabilities, for example:
 
 ```java
