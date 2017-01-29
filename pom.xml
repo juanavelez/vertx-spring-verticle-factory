@@ -103,6 +103,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-core</artifactId>
       <version>${vertx.core.version}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
