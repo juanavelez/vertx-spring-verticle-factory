@@ -1,4 +1,7 @@
 # Vert.x Spring Verticle Factory
+
+[![Build Status](https://travis-ci.org/juanavelez/vertx-spring-verticle-factory.svg?branch=master)](https://travis-ci.org/juanavelez/vertx-spring-verticle-factory) 
+
 An implementation of a Vert.x Verticle Factory where the verticles are obtained via a Spring Application Context. The verticles must exist as Spring Beans whose bean scope must be PROTOTYPE. The verticles are free to use all the Spring-provided capabilities to set themselves up. This factory's createVerticle method can be considered slow, hence blockingCreate() returns true.
 
 This implementation relies on setting a Spring Application Context (using com.chibchasoft.vertx.spring.ApplicationContextProvider) before Vert.x Verticles are deployed. The prefix for this verticle is "spring:" and the verticle name is the spring bean id/name assigned to such verticle.
