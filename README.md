@@ -8,15 +8,17 @@ This implementation relies on setting a Spring Application Context (using com.ch
 
 ##Usage:##
 
+Vert.x Spring Verticle Factory is published to the [maven public repo](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.chibchasoft%22%20AND%20a%3A%22vertx-spring-verticle-factory%22).
+
 Add the vertx-spring-verticle-factory dependency to your project, in case of maven like this:
 
 ```xml
         <dependency>
             <groupId>com.chibchasoft</groupId>
             <artifactId>vertx-spring-verticle-factory</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
- ```
+```
 
 Then create a Spring Application Context (either using an XML or annotation approach) and assign it to the ApplicationContextProvider:
 
