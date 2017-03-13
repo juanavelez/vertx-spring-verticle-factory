@@ -16,7 +16,7 @@ Add the vertx-spring-verticle-factory dependency to your project, in case of mav
         <dependency>
             <groupId>com.chibchasoft</groupId>
             <artifactId>vertx-spring-verticle-factory</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.2</version>
         </dependency>
 ```
 
