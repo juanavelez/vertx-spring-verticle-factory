@@ -12,6 +12,8 @@
  */
 package com.chibchasoft.vertx.spring;
 
+import java.util.Objects;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -34,6 +36,7 @@ public class ApplicationContextProvider {
      * @param annotatedConfigClass The class of the annotated-configuration
      */
     public static synchronized void setConfigurationClass(Class<?> annotatedConfigClass) {
+        Objects.requireNonNull(annotatedConfigClass, "Annotated Configuration class is required");
         appCtx = new AnnotationConfigApplicationContext(annotatedConfigClass);
     }
 
@@ -42,6 +45,7 @@ public class ApplicationContextProvider {
      * @param appCtx The actual application context to be provided byt this class.
      */
     public static synchronized void setApplicationContext(ApplicationContext appCtx) {
+        Objects.requireNonNull(appCtx, "Application Context is required");
         ApplicationContextProvider.appCtx = appCtx; 
     }
 

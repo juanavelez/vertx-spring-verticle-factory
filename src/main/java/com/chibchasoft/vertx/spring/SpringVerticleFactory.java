@@ -12,6 +12,8 @@
  */
 package com.chibchasoft.vertx.spring;
 
+import java.util.Objects;
+
 import org.springframework.context.ApplicationContext;
 
 import io.vertx.core.Verticle;
@@ -54,7 +56,9 @@ public class SpringVerticleFactory implements VerticleFactory {
      */
     @Override
     public Verticle createVerticle(String verticleName, ClassLoader classLoader) throws Exception {
+        Objects.requireNonNull(verticleName, "Verticle Name is required");
         verticleName = VerticleFactory.removePrefix(verticleName);
+        Objects.requireNonNull(verticleName, "Verticle Name must be more than just the prefix");
         ApplicationContext ctx = getApplicationContext();
         if (!ctx.containsBean(verticleName))
             throw new IllegalArgumentException(String.format("No bean found for %s", verticleName));
