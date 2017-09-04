@@ -66,10 +66,7 @@ public class SpringVerticleFactory implements VerticleFactory {
         if (!ctx.isPrototype(verticleName))
             throw new IllegalArgumentException(String.format("Bean %s needs to be of Prototype scope", verticleName));
 
-        Verticle verticle = (Verticle) ctx.getBean(verticleName);
-        if (verticle==null)
-            throw new IllegalArgumentException(String.format("No bean found for %s", verticleName));
-        return verticle;
+        return (Verticle) ctx.getBean(verticleName);
     }
 
     /**

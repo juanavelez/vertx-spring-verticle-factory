@@ -26,7 +26,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * 
  * @author <a href="mailto:jvelez@chibchasoft.com">Juan Velez</a>
  */
-public class ApplicationContextProvider {
+public final class ApplicationContextProvider {
     private static ApplicationContext appCtx = null;
 
     /**

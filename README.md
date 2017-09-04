@@ -1,6 +1,8 @@
 # Vert.x Spring Verticle Factory
 
 [![Build Status](https://travis-ci.org/juanavelez/vertx-spring-verticle-factory.svg?branch=master)](https://travis-ci.org/juanavelez/vertx-spring-verticle-factory) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.chibchasoft/vertx-spring-verticle-factory/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Ccom.chibchasoft.vertx-spring-verticle-factory)
+[![codecov](https://codecov.io/gh/juanavelez/vertx-spring-verticle-factory/branch/master/graph/badge.svg)](https://codecov.io/gh/juanavelez/vertx-spring-verticle-factory)
 
 An implementation of a Vert.x Verticle Factory where the verticles are obtained via a Spring Application Context. The verticles must exist as Spring Beans whose bean scope must be PROTOTYPE. The verticles are free to use all the Spring-provided capabilities to set themselves up. This factory's createVerticle method can be considered slow, hence blockingCreate() returns true.
 
@@ -16,9 +18,10 @@ Add the vertx-spring-verticle-factory dependency to your project, in case of mav
         <dependency>
             <groupId>com.chibchasoft</groupId>
             <artifactId>vertx-spring-verticle-factory</artifactId>
-            <version>1.0.2</version>
+            <version>VERSION</version>
         </dependency>
 ```
+where VERSION is [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.chibchasoft/vertx-spring-verticle-factory/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Ccom.chibchasoft.vertx-spring-verticle-factory)
 
 Then create a Spring Application Context (either using an XML or annotation approach) and assign it to the ApplicationContextProvider:
 
