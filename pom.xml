@@ -20,7 +20,7 @@
 
     <groupId>com.chibchasoft</groupId>
     <artifactId>vertx-spring-verticle-factory</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
 
     <name>Vert.x Spring Verticle Factory</name>
     <description>Spring-based Verticle Factory for Vert.x</description>
