@@ -8,7 +8,7 @@ An implementation of a Vert.x Verticle Factory where the verticles are obtained 
 
 This implementation relies on setting a Spring Application Context (using com.chibchasoft.vertx.spring.ApplicationContextProvider) before Vert.x Verticles are deployed. The prefix for this verticle is "spring:" and the verticle name is the spring bean id/name assigned to such verticle.
 
-##Usage:
+## Usage: ##
 
 Vert.x Spring Verticle Factory is published to the [maven public repo](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.chibchasoft%22%20AND%20a%3A%22vertx-spring-verticle-factory%22).
 
