@@ -4,11 +4,11 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.chibchasoft/vertx-spring-verticle-factory/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Ccom.chibchasoft.vertx-spring-verticle-factory)
 [![codecov](https://codecov.io/gh/juanavelez/vertx-spring-verticle-factory/branch/master/graph/badge.svg)](https://codecov.io/gh/juanavelez/vertx-spring-verticle-factory)
 
-An implementation of a Vert.x Verticle Factory where the verticles are obtained via a Spring Application Context. The verticles must exist as Spring Beans whose bean scope must be PROTOTYPE. The verticles are free to use all the Spring-provided capabilities to set themselves up. This factory's createVerticle method can be considered slow, hence blockingCreate() returns true.
+An implementation of a Vert.x Verticle Factory where the verticles are obtained via a Spring Application Context. The verticles must exist as Spring Beans whose bean scope must be **PROTOTYPE**. The verticles are free to use all the Spring-provided capabilities to set themselves up. This factory's createVerticle method can be considered slow, hence blockingCreate() returns true.
 
 This implementation relies on setting a Spring Application Context (using com.chibchasoft.vertx.spring.ApplicationContextProvider) before Vert.x Verticles are deployed. The prefix for this verticle is "spring:" and the verticle name is the spring bean id/name assigned to such verticle.
 
-##Usage:##
+##Usage:
 
 Vert.x Spring Verticle Factory is published to the [maven public repo](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.chibchasoft%22%20AND%20a%3A%22vertx-spring-verticle-factory%22).
 

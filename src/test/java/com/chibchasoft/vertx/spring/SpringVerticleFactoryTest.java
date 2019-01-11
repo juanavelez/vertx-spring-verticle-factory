@@ -25,13 +25,13 @@ import io.vertx.test.core.VertxTestBase;
  */
 public class SpringVerticleFactoryTest extends VertxTestBase {
     @BeforeClass
-    public static void createAppCtx() throws Exception {
+    public static void createAppCtx() {
         ApplicationContext appCtx = new AnnotationConfigApplicationContext(AnnotatedConfiguration.class);
         ApplicationContextProvider.setApplicationContext(appCtx);
     }
 
     @AfterClass
-    public static void closeAppCtx() throws Exception {
+    public static void closeAppCtx() {
         ApplicationContext appCtx = ApplicationContextProvider.getApplicationContext();
         ((AnnotationConfigApplicationContext) appCtx).close();
     }
